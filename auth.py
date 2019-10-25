@@ -7,5 +7,4 @@ authentication = Blueprint('auth', __name__)
 
 @authentication.route("/")
 def home_page():
-    mongo.db.users.insert({'name': 'Tanmoy'})
-    return render_template("index.html", online_users="data")
+    return render_template("index.html")
