@@ -11,5 +11,8 @@ app.register_blueprint(authentication)
 app.register_blueprint(homereq)
 
 
+app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

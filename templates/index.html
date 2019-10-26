@@ -23,7 +23,7 @@
             <div class="signup-content">
                 <div class="signup-form">
                     <h2 class="form-title">Sign up</h2>
-                    <form method="POST" class="register-form" id="register-form" action="">
+                    <form method="POST" class="register-form" id="register-form" action="{{ url_for('auth.registration') }}">
 
                         <div class="form-group">
                             <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
@@ -41,6 +41,11 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="phn"><i class="zmdi zmdi-lock-outline"></i></label>
+                            <input type="text" name="num" id="phn" placeholder="Phone"/>
+                        </div>
+
+                        <div class="form-group">
                             <label for="address"><i class="zmdi zmdi-lock-outline"></i></label>
                             <input type="text" name="address" id="address" placeholder="Address"/>
                         </div>
@@ -48,6 +53,11 @@
                         <div class="form-group">
                             <label for="city"><i class="zmdi zmdi-lock-outline"></i></label>
                             <input type="text" name="city" id="city" placeholder="City"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="state"><i class="zmdi zmdi-lock-outline"></i></label>
+                            <input type="text" name="state" id="state" placeholder="State"/>
                         </div>
 
                         <div class="form-group">
@@ -62,7 +72,7 @@
 
                         <div class="form-group">
                             <label for="edu"><i class="zmdi zmdi-lock-outline"></i></label>
-                            <input type="text" name="education" id="edu" placeholder="Educational level"
+                            <input type="text" name="edu" id="edu" placeholder="Educational level"
                                    list="edulst"/>
                             <datalist id="edulst">
                                 <option value="Graduate">
@@ -74,7 +84,7 @@
 
                         <div class="form-group">
                             <label for="eduinst"><i class="zmdi zmdi-lock-outline"></i></label>
-                            <input type="text" name="eduinst" id="eduinst" placeholder="Educational institute"/>
+                            <input type="text" name="inst" id="eduinst" placeholder="Educational institute"/>
                         </div>
 
                         <div class="form-group">
@@ -110,14 +120,14 @@
 
                 <div class="signin-form">
                     <h2 class="form-title">Sign in</h2>
-                    <form method="POST" class="register-form" id="login-form">
+                    <form method="POST" class="register-form" id="login-form" action="{{ url_for('auth.login') }}">
                         <div class="form-group">
                             <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>
+                            <input type="email" name="email" id="your_name" placeholder="Email"/>
                         </div>
                         <div class="form-group">
                             <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                            <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
+                            <input type="password" name="pass" id="your_pass" placeholder="Password"/>
                         </div>
                         <div class="form-group">
                             <input type="checkbox" name="remember-me" id="remember-me" class="agree-term"/>
