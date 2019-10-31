@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>tinymce.init({selector: 'textarea'});</script>
+
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
 
     <link rel="stylesheet" href="../static/css/open-iconic-bootstrap.min.css">
@@ -74,27 +77,32 @@
 
             <div class="col-md-12 col-lg-8 mb-5">
 
-                <form action="#" class="p-5 bg-white">
+                <form action="{{ url_for('home.post_job') }}" class="p-5 bg-white" method="POST" role="form">
 
                     <div class="row form-group">
                         <div class="col-md-12 mb-3 mb-md-0">
                             <label for="option-price-1">
-                                <input type="checkbox" id="option-price-1"> <span class="text-success">$500</span> For
-                                30 days
+                                <input type="text" name="salary" id="option-price-1" placeholder="Salary ex: $500">
+                                <span class="text-success">
+                                <input type="text" name="duration" list="job-type" id="option-job-type-1"
+                                       placeholder="Duration ex: 30 Days">
+                            </span>
                             </label>
                         </div>
+                        <!--
                         <div class="col-md-12 mb-3 mb-md-0">
                             <label for="option-price-2">
                                 <input type="checkbox" id="option-price-2"> <span class="text-success">$300</span> /
                                 Monthly Recurring
                             </label>
                         </div>
+                        -->
                     </div>
 
                     <div class="row form-group">
                         <div class="col-md-12 mb-3 mb-md-0">
                             <label class="font-weight-bold" for="fullname">Job Title</label>
-                            <input type="text" id="fullname" class="form-control"
+                            <input type="text" name="title" id="fullname" class="form-control"
                                    placeholder="eg. Professional UI/UX Designer">
                         </div>
                     </div>
@@ -102,7 +110,8 @@
                     <div class="row form-group mb-5">
                         <div class="col-md-12 mb-3 mb-md-0">
                             <label class="font-weight-bold" for="fullname">Company</label>
-                            <input type="text" id="fullname" class="form-control" placeholder="eg. Facebook, Inc.">
+                            <input type="text" name="company_name" id="fullname" class="form-control"
+                                   placeholder="eg. Facebook, Inc.">
                         </div>
                     </div>
 
@@ -111,27 +120,27 @@
                         <div class="col-md-12"><h3>Job Type</h3></div>
                         <div class="col-md-12 mb-3 mb-md-0">
                             <label for="option-job-type-1">
-                                <input type="radio" id="option-job-type-1" name="job-type"> Full Time
+                                <input type="radio" id="option-job-type-1" value="Full Time" name="job-type"> Full Time
                             </label>
                         </div>
                         <div class="col-md-12 mb-3 mb-md-0">
                             <label for="option-job-type-2">
-                                <input type="radio" id="option-job-type-2" name="job-type"> Part Time
+                                <input type="radio" id="option-job-type-2" value="Part time" name="job-type"> Part Time
                             </label>
                         </div>
 
                         <div class="col-md-12 mb-3 mb-md-0">
                             <label for="option-job-type-3"></label>
-                                <input type="radio" id="option-job-type-3" name="job-type"> Freelance
+                            <input type="radio" id="option-job-type-3" value="Freelance" name="job-type"> Freelance
                         </div>
                         <div class="col-md-12 mb-3 mb-md-0">
                             <label for="option-job-type-4">
-                                <input type="radio" id="option-job-type-4" name="job-type"> Internship
+                                <input type="radio" id="option-job-type-4" value="Intership" name="job-type"> Internship
                             </label>
                         </div>
                         <div class="col-md-12 mb-3 mb-md-0">
                             <label for="option-job-type-4">
-                                <input type="radio" id="option-job-type-4" name="job-type"> Termporary
+                                <input type="radio" id="option-job-type-4" value="Temporary" name="job-type"> Temporary
                             </label>
                         </div>
 
@@ -140,7 +149,7 @@
                     <div class="row form-group mb-4">
                         <div class="col-md-12"><h3>Location</h3></div>
                         <div class="col-md-12 mb-3 mb-md-0">
-                            <input type="text" class="form-control" placeholder="Western City, UK
+                            <input type="text" name="location" class="form-control" placeholder="Western City, UK
 ">
                         </div>
                     </div>
@@ -148,7 +157,8 @@
                     <div class="row form-group">
                         <div class="col-md-12"><h3>Job Description</h3></div>
                         <div class="col-md-12 mb-3 mb-md-0">
-                            <textarea name="" class="form-control" id="" cols="30" rows="5"></textarea>
+                            <!--<textarea name="description " class="form-control" id="" cols="30" rows="5"></textarea>-->
+                            <textarea class="tinymce form-control" id="textEditor" name="text_editor"></textarea>
                         </div>
                     </div>
 
@@ -157,8 +167,6 @@
                             <input type="submit" value="Post" class="btn btn-primary  py-2 px-5">
                         </div>
                     </div>
-
-
                 </form>
             </div>
 
